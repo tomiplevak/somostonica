@@ -1,47 +1,88 @@
 import type { FC } from "react";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowUpRight, Sparkles } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { HeroProps } from "./hero.types";
 import { heroVariants } from "./hero.variants";
 
 export const Hero: FC<HeroProps> = ({
-  agencyName = "Somos Tónica",
-  tagline = "Agencia de Marketing & Comunicación",
-  headline = "Marcas con identidad, voz y pulso propio.",
-  description = "Estrategia de comunicación, marketing digital, diseño de marca y narrativas que conectan. Diseñamos experiencias con propósito para marcas que buscan destacar.",
+  badgeLabel = "Estudio de Comunicación & Diseño Editorial",
+  headline = "Marcas con pulso propio. Comunicación que se lee de verdad.",
+  subheadline = "Dejamos atrás el ruido algorítmico y las plantillas vacías. En Tónica ideamos la voz, el diseño editorial y la estrategia para marcas que buscan perdurar en la mente de las personas.",
+  ctaPrimaryLabel = "Iniciar conversación",
+  ctaSecondaryLabel = "Explorar casos",
 }) => {
   return (
     <section className={heroVariants.section()}>
-      <div className={heroVariants.backdropGlow()} />
+      <div className={heroVariants.glowBackdrop()} />
 
-      <div className="flex flex-col items-center">
-        <Badge variant="default" className="mb-6">
-          <Sparkles className="h-3.5 w-3.5 text-[#f35b04]" />
-          <span>{tagline}</span>
-        </Badge>
+      <div className={heroVariants.grid()}>
+        {/* Left Column: Typography & Intent */}
+        <div className={heroVariants.leftCol()}>
+          <div className={heroVariants.eyebrow()}>
+            <Badge variant="default" className="text-xs px-3.5 py-1">
+              <Sparkles className="h-3 w-3 text-[#f35b04]" />
+              <span>{badgeLabel}</span>
+            </Badge>
+          </div>
 
-        <h1 className={heroVariants.title()}>
-          <span className="text-white">{agencyName}</span>
-          <br />
-          <span className="bg-gradient-to-r from-[#f35b04] via-[#ff884d] to-[#ffb088] bg-clip-text text-transparent">
-            {headline}
-          </span>
-        </h1>
+          <h1 className={heroVariants.headline()}>
+            <span>Marcas con pulso propio.</span>
+            <br />
+            <span className="bg-gradient-to-r from-[#f35b04] via-[#ff7c33] to-[#ffd1ba] bg-clip-text text-transparent">
+              Comunicación que se lee de verdad.
+            </span>
+          </h1>
 
-        <p className={heroVariants.description()}>{description}</p>
+          <p className={heroVariants.subheadline()}>{subheadline}</p>
 
-        <div className={heroVariants.actionsGroup()}>
-          <Button variant="primary" size="lg">
-            <span>Iniciar conversación</span>
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-          <Button variant="secondary" size="lg">
-            <span>Conocer proyectos</span>
-          </Button>
+          <div className={heroVariants.actions()}>
+            <a href="#contacto">
+              <Button variant="primary" size="lg" className="gap-2">
+                <span>{ctaPrimaryLabel}</span>
+                <ArrowUpRight className="h-4 w-4" />
+              </Button>
+            </a>
+            <a href="#casos">
+              <Button variant="secondary" size="lg">
+                <span>{ctaSecondaryLabel}</span>
+              </Button>
+            </a>
+          </div>
+        </div>
+
+        {/* Right Column: Floating 4:5 Editorial Card */}
+        <div className={heroVariants.rightCol()}>
+          <div className={heroVariants.cardPreview()}>
+            {/* Top info */}
+            <div className="flex items-center justify-between border-b border-white/5 pb-4">
+              <div className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-[#f35b04]" />
+                <span className="text-[11px] font-medium tracking-wider uppercase text-slate-400">
+                  @aldanalichtenberger
+                </span>
+              </div>
+              <span className="text-[10px] font-mono text-slate-500">01/07</span>
+            </div>
+
+            {/* Middle: Editorial Quote */}
+            <div className="my-auto py-4">
+              <span className="text-xs font-mono tracking-widest text-[#f35b04] uppercase block mb-3">
+                Inteligencia Vincular
+              </span>
+              <p className="font-display text-2xl sm:text-3xl font-bold leading-tight text-white tracking-tight">
+                «Cuando dos personas conviven, no se suman dos espacios. Nace un tercero.»
+              </p>
+            </div>
+
+            {/* Bottom meta */}
+            <div className="pt-4 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-500">
+              <span>Dirección editorial</span>
+              <span className="text-slate-300 font-medium">Tónica Studio</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 };
-

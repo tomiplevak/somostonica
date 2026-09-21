@@ -1,41 +1,51 @@
+import { ProgressBar } from "@/components/layout/progress-bar";
+import { MorphingNav } from "@/components/layout/morphing-nav";
 import { Hero } from "@/components/landing/hero";
+import { Manifesto } from "@/components/landing/manifesto";
+import { Method } from "@/components/landing/method";
+import { Showcase } from "@/components/landing/showcase";
+import { Contact } from "@/components/landing/contact";
 
 export default function HomePage() {
   return (
-    <div className="flex min-h-screen flex-col bg-[#0c0d0e] text-[#f8fafc]">
-      <header className="sticky top-0 z-50 w-full border-b border-white/5 bg-[#0c0d0e]/80 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+    <div className="relative min-h-screen bg-[#090a0b] text-[#f1f3f5] selection:bg-[#f35b04] selection:text-white">
+      {/* Top scroll progress indicator */}
+      <ProgressBar />
+
+      {/* Dynamic morphing navigation */}
+      <MorphingNav />
+
+      {/* Main Narrative Structure */}
+      <main className="relative flex flex-col">
+        <Hero />
+        <Manifesto />
+        <Method />
+        <Showcase />
+        <Contact />
+      </main>
+
+      {/* Editorial Footer */}
+      <footer className="border-t border-white/5 py-12 text-center text-xs text-slate-500">
+        <div className="mx-auto max-w-6xl px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#f35b04]" />
-            <span className="text-lg font-bold tracking-tight text-white">
+            <span className="h-2 w-2 rounded-full bg-[#f35b04]" />
+            <span className="font-display font-bold tracking-tight text-white text-sm">
               somos tónica
             </span>
           </div>
-          <nav className="flex items-center gap-6 text-sm text-slate-400">
-            <span className="cursor-pointer hover:text-white transition-colors">
-              Servicios
-            </span>
-            <span className="cursor-pointer hover:text-white transition-colors">
-              Marcas
-            </span>
-            <span className="cursor-pointer hover:text-white transition-colors">
-              Contacto
-            </span>
-          </nav>
-        </div>
-      </header>
 
-      <main className="flex-1">
-        <Hero />
-      </main>
+          <p className="text-slate-500">
+            © {new Date().getFullYear()} Somos Tónica Studio · Estrategia, Voz & Dirección Editorial.
+          </p>
 
-      <footer className="border-t border-white/5 py-8 text-center text-xs text-slate-500">
-        <div className="mx-auto max-w-6xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p>© {new Date().getFullYear()} Somos Tónica. Todos los derechos reservados.</p>
-          <p className="text-slate-600">Estrategia · Branding · Contenido</p>
+          <a
+            href="#"
+            className="text-slate-400 hover:text-white transition-colors duration-200"
+          >
+            Volver al inicio ↑
+          </a>
         </div>
       </footer>
     </div>
   );
 }
-

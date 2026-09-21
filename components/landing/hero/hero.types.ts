@@ -1,7 +1,7 @@
 export interface HeroProps {
-  agencyName?: string;
-  tagline?: string;
+  badgeLabel?: string;
   headline?: string;
-  description?: string;
+  subheadline?: string;
+  ctaPrimaryLabel?: string;
+  ctaSecondaryLabel?: string;
 }
-
