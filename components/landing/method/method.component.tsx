@@ -102,3 +102,4 @@ export const Method: FC<MethodProps> = ({ pillars = defaultPillars }) => {
     </section>
   );
 };
+

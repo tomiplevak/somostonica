@@ -59,3 +59,4 @@ export const useMethod = (pillars: MethodPillar[] = defaultPillars): UseMethodRe
     activePillar,
   };
 };
+

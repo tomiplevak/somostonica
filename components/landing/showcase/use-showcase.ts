@@ -52,3 +52,4 @@ export const useShowcase = (slides: ShowcaseSlide[] = defaultAldanaSlides): UseS
     currentSlide: slides[activeSlideIndex] ?? slides[0],
   };
 };
+

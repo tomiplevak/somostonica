@@ -18,3 +18,4 @@ export const ProgressBar: FC<ProgressBarProps> = ({ className }) => {
     />
   );
 };
+

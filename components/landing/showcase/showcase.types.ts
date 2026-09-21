@@ -19,3 +19,4 @@ export interface UseShowcaseReturn {
   prevSlide: () => void;
   currentSlide: ShowcaseSlide;
 }
+

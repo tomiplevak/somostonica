@@ -5,3 +5,4 @@ export interface ProgressBarProps {
 export interface UseScrollProgressReturn {
   progress: number;
 }
+

@@ -17,3 +17,4 @@ export interface UseMethodReturn {
   setActivePillarId: (id: string) => void;
   activePillar: MethodPillar;
 }
+

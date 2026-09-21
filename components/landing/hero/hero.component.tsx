@@ -37,14 +37,14 @@ export const Hero: FC<HeroProps> = ({
           <p className={heroVariants.subheadline()}>{subheadline}</p>
 
           <div className={heroVariants.actions()}>
-            <a href="#contacto">
-              <Button variant="primary" size="lg" className="gap-2">
+            <a href="#contacto" className="w-full sm:w-auto">
+              <Button variant="primary" size="lg" className="w-full sm:w-auto gap-2">
                 <span>{ctaPrimaryLabel}</span>
                 <ArrowUpRight className="h-4 w-4" />
               </Button>
             </a>
-            <a href="#casos">
-              <Button variant="secondary" size="lg">
+            <a href="#casos" className="w-full sm:w-auto">
+              <Button variant="secondary" size="lg" className="w-full sm:w-auto">
                 <span>{ctaSecondaryLabel}</span>
               </Button>
             </a>

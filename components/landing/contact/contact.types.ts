@@ -6,3 +6,4 @@ export interface ContactProps {
   whatsappMessage?: string;
   email?: string;
 }
+

@@ -2,7 +2,7 @@ import { cva } from "class-variance-authority";
 
 export const morphingNavVariants = {
   wrapper: cva(
-    "fixed top-4 left-0 right-0 z-40 flex justify-center px-4 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none"
+    "fixed top-3 sm:top-4 left-0 right-0 z-40 flex justify-center px-3 sm:px-4 pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
   ),
   container: cva(
     "pointer-events-auto flex items-center justify-between transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
@@ -10,9 +10,9 @@ export const morphingNavVariants = {
       variants: {
         scrolled: {
           false:
-            "w-full max-w-6xl h-16 px-6 bg-transparent border-b border-white/5",
+            "w-full max-w-6xl h-14 sm:h-16 px-3 sm:px-6 bg-transparent border-b border-white/5",
           true:
-            "w-auto max-w-xl h-13 px-4 rounded-full glass-dock shadow-2xl shadow-black/60 translate-y-1",
+            "w-auto max-w-xl h-11 sm:h-13 px-3 sm:px-4 rounded-full glass-dock shadow-2xl shadow-black/60 translate-y-0 sm:translate-y-1 gap-2 sm:gap-3",
         },
       },
       defaultVariants: {
@@ -20,18 +20,18 @@ export const morphingNavVariants = {
       },
     }
   ),
-  logo: cva("flex items-center gap-2.5 font-bold tracking-tight text-white transition-all duration-300", {
+  logo: cva("flex items-center gap-2 font-bold tracking-tight text-white transition-all duration-300 shrink-0", {
     variants: {
       scrolled: {
-        false: "text-base sm:text-lg",
-        true: "text-sm",
+        false: "text-sm sm:text-base",
+        true: "text-xs sm:text-sm",
       },
     },
     defaultVariants: {
       scrolled: false,
     },
   }),
-  linksContainer: cva("flex items-center transition-all duration-300", {
+  desktopLinks: cva("hidden md:flex items-center transition-all duration-300", {
     variants: {
       scrolled: {
         false: "gap-8 text-sm",
@@ -45,18 +45,22 @@ export const morphingNavVariants = {
   link: cva(
     "text-slate-400 hover:text-white transition-colors duration-200 tracking-wide font-medium"
   ),
+  actions: cva("flex items-center gap-2 shrink-0"),
   ctaButton: cva(
-    "inline-flex items-center justify-center rounded-full font-medium transition-all duration-300",
+    "inline-flex items-center justify-center rounded-full font-medium transition-all duration-300 tracking-wide whitespace-nowrap",
     {
       variants: {
         scrolled: {
-          false: "h-9 px-4 text-xs bg-[#f35b04] text-white hover:bg-[#ff701e]",
-          true: "h-8 px-3 text-xs bg-[#f35b04] text-white hover:bg-[#ff701e]",
+          false: "h-8 sm:h-9 px-3.5 sm:px-4 text-xs bg-[#f35b04] text-white hover:bg-[#ff701e]",
+          true: "h-7 sm:h-8 px-2.5 sm:px-3 text-[11px] sm:text-xs bg-[#f35b04] text-white hover:bg-[#ff701e]",
         },
       },
       defaultVariants: {
         scrolled: false,
       },
     }
+  ),
+  menuButton: cva(
+    "flex md:hidden items-center justify-center h-8 w-8 rounded-full border border-white/10 text-slate-300 hover:text-white hover:bg-white/5 transition-colors focus-visible:outline-none"
   ),
 };

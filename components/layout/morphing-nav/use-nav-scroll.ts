@@ -1,11 +1,32 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import type { UseNavScrollReturn } from "./morphing-nav.types";
 
 export const useNavScroll = (threshold: number = 70): UseNavScrollReturn => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = useCallback(() => {
+    setIsMenuOpen((prev) => !prev);
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    setIsMenuOpen(false);
+  }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
 
   useEffect(() => {
     let ticking = false;
@@ -44,5 +65,11 @@ export const useNavScroll = (threshold: number = 70): UseNavScrollReturn => {
     };
   }, [threshold]);
 
-  return { isScrolled, activeSection };
+  return {
+    isScrolled,
+    activeSection,
+    isMenuOpen,
+    toggleMenu,
+    closeMenu,
+  };
 };

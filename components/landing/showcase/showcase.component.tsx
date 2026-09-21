@@ -66,3 +66,4 @@ export const Showcase: FC<ShowcaseProps> = ({ slides = defaultAldanaSlides }) =>
     </section>
   );
 };
+

@@ -23,3 +23,4 @@ export const Manifesto: FC<ManifestoProps> = ({
     </section>
   );
 };
+

@@ -12,4 +12,7 @@ export interface MorphingNavProps {
 export interface UseNavScrollReturn {
   isScrolled: boolean;
   activeSection: string;
+  isMenuOpen: boolean;
+  toggleMenu: () => void;
+  closeMenu: () => void;
 }

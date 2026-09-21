@@ -39,3 +39,4 @@ export const useScrollProgress = (): UseScrollProgressReturn => {
 
   return { progress };
 };
+

@@ -25,16 +25,16 @@ export const Contact: FC<ContactProps> = ({
       <p className={contactVariants.description()}>{description}</p>
 
       <div className={contactVariants.actions()}>
-        <a href={whatsappUrl} target="_blank" rel="noreferrer noopener">
-          <Button variant="primary" size="lg" className="gap-2">
+        <a href={whatsappUrl} target="_blank" rel="noreferrer noopener" className="w-full sm:w-auto">
+          <Button variant="primary" size="lg" className="w-full sm:w-auto gap-2">
             <MessageSquare className="h-4 w-4" />
             <span>Escribir por WhatsApp</span>
             <ArrowUpRight className="h-4 w-4" />
           </Button>
         </a>
 
-        <a href={`mailto:${email}`}>
-          <Button variant="secondary" size="lg" className="gap-2">
+        <a href={`mailto:${email}`} className="w-full sm:w-auto">
+          <Button variant="secondary" size="lg" className="w-full sm:w-auto gap-2">
             <Mail className="h-4 w-4 text-slate-400" />
             <span>{email}</span>
           </Button>
@@ -43,3 +43,4 @@ export const Contact: FC<ContactProps> = ({
     </section>
   );
 };
+

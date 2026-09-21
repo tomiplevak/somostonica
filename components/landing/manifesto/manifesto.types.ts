@@ -4,3 +4,4 @@ export interface ManifestoProps {
   subtextPrimary?: string;
   subtextSecondary?: string;
 }
+
