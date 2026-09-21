@@ -13,9 +13,8 @@ export const ProgressBar: FC<ProgressBarProps> = ({ className }) => {
       aria-hidden="true"
       className={progressBarVariants({ className })}
       style={{
-        transform: `scaleX(${progress / 100})`,
+        width: `${progress}%`,
       }}
     />
   );
 };
-

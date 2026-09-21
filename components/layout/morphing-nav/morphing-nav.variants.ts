@@ -2,7 +2,18 @@ import { cva } from "class-variance-authority";
 
 export const morphingNavVariants = {
   wrapper: cva(
-    "fixed top-3 sm:top-4 left-0 right-0 z-40 flex justify-center px-3 sm:px-4 pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+    "fixed left-0 right-0 z-40 flex justify-center pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+    {
+      variants: {
+        scrolled: {
+          false: "top-0 px-4 sm:px-6",
+          true: "top-5 sm:top-6 px-3 sm:px-4",
+        },
+      },
+      defaultVariants: {
+        scrolled: false,
+      },
+    }
   ),
   container: cva(
     "pointer-events-auto flex items-center justify-between transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
@@ -10,9 +21,9 @@ export const morphingNavVariants = {
       variants: {
         scrolled: {
           false:
-            "w-full max-w-6xl h-14 sm:h-16 px-3 sm:px-6 bg-transparent border-b border-white/5",
+            "w-full max-w-6xl h-16 bg-[#090a0b]/80 backdrop-blur-md border-b border-white/5 px-3 sm:px-6",
           true:
-            "w-auto max-w-xl h-11 sm:h-13 px-3 sm:px-4 rounded-full glass-dock shadow-2xl shadow-black/60 translate-y-0 sm:translate-y-1 gap-2 sm:gap-3",
+            "w-auto max-w-xl h-12 sm:h-13 px-3.5 sm:px-4 rounded-full glass-dock shadow-2xl shadow-black/80 gap-2.5 sm:gap-3",
         },
       },
       defaultVariants: {

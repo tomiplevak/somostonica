@@ -22,7 +22,7 @@ export const MorphingNav: FC<MorphingNavProps> = ({
 
   return (
     <>
-      <header className={morphingNavVariants.wrapper()}>
+      <header className={morphingNavVariants.wrapper({ scrolled: isScrolled })}>
         <nav
           aria-label="Navegación principal"
           className={morphingNavVariants.container({ scrolled: isScrolled })}
